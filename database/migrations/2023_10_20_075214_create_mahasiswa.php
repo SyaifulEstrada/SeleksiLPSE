@@ -16,7 +16,7 @@ return new class extends Migration
         $table->string('nama');
         $table->string('alamat');
         $table->enum('jekel', ['laki-laki', 'perempuan']);
-        $table->string('jurusan')->index()->nullable();
+        $table->string('jurusan');
         $table->foreign('jurusan')->references('jurusan')->on('jurusan')->onUpdate('cascade')->onUpdate('cascade');
         $table->timestamps();
        });

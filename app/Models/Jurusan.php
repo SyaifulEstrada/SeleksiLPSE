@@ -17,7 +17,7 @@ class Jurusan extends Model
 
     protected $fillable = ['jurusan', 'kode_jurusan'];
 
-    public function Mahasiswa() : HasMany
+    public function mahasiswa() : HasMany
      {
         return $this->HasMany(Mahasiswa::class, 'jurusan');
     }

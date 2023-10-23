@@ -19,23 +19,12 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+            //     'name' => 'Test User',
+            //     'email' => 'test@example.com',
+            // ]);
 
+            User::factory(4)->create();
 
-        User::turncate();
-
-
-        User::factory(4)->create();
-        Jurusan::factory(4)->create();
-        // Mahasiswa::factory(4)->create()->Jurusan();
-        // Mahasiswa::factory(4)->create()->each(function ($mahasiswa) {
-        //     $jurusan = Jurusan::factory()->make();
-        //     $mahasiswa->jurusan()->save($jurusan);
-        // });
-
-        // Mahasiswa::factory(4)->create();
 
     }
 }
