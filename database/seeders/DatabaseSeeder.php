@@ -4,10 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Jurusan;
-use App\Models\Mahasiswa;
+
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Database\Seeders\JurusanSedeer;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
             //     'name' => 'Test User',
             //     'email' => 'test@example.com',
             // ]);
-
             User::factory(4)->create();
+            $this->call(JurusanSedeer::class);
 
 
     }

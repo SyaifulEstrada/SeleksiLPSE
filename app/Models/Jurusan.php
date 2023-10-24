@@ -11,15 +11,15 @@ class Jurusan extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'jurusan';
+    protected $primaryKey = 'id_jurusan';
 
     protected $table = 'jurusan';
 
-    protected $fillable = ['jurusan', 'kode_jurusan'];
+    protected $fillable = ['kode_jurusan', 'nama_jurusan'];
 
-    public function mahasiswa() : HasMany
+    public function mahasiswa()
      {
-        return $this->HasMany(Mahasiswa::class, 'jurusan');
+        return $this->HasMany(Mahasiswa::class, 'id_jurusan', 'id_jurusan');
     }
 
 }

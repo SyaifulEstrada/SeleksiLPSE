@@ -28,7 +28,6 @@ class MahasiswaFactory extends Factory
             'nama' => fake()->name(function (Array $jekel) {return $jekel['jekel'];}),
             'alamat' => fake()->address(),
             'jekel' => $jekel,
-            'jurusan' => Jurusan::factory()->create()->jurusan,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

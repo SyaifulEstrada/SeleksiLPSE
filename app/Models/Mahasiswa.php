@@ -17,10 +17,10 @@ class Mahasiswa extends Model
 
     protected $table = 'mahasiswa';
 
-    protected $fillable = ['nim', 'nama', 'alamat', 'jekel', 'jurusan'];
+    protected $fillable = ['nim', 'nama', 'alamat', 'jekel', 'id_jurusan'];
 
-    public function jurusan() : BelongsTo {
-        return $this->BelongsTo(Jurusan::class, 'jurusan', 'jurusan');
+    public function jurusan() {
+        return $this->BelongsTo(Jurusan::class, 'id_jurusan', 'id_jurusan');
     }
 
 }

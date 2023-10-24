@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\JurusanController;
 use App\Http\Controllers\Admin\MahasiswaController;
 use App\Http\Controllers\LoginController;
+use App\Models\Jurusan;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +37,6 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::resource('/mahasiswa', MahasiswaController::class);
 });
 
+
+Route::get('/jurusan/pdf', [JurusanController::class, 'pdf'])->middleware('auth')->name('jurusan.print');
+Route::get('/mahasiswa/pdf', [MahasiswaController::class, 'pdf'])->middleware('auth')->name('mahasiswa.print');

@@ -26,8 +26,8 @@ class JurusanFactory extends Factory
         // $randJurusan = Array::random($jurusan);
 
         return [
-            'jurusan' => fake()->word(),
-            'kode_jurusan' => fake()->randomDigit(),
+            'kode_jurusan' => Str::random(2),
+            'nama_jurusan' => fake()->word(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
