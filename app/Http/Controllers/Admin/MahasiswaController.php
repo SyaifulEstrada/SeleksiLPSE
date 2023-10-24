@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MahasiswaRequest;
+use App\Http\Resources\Mahasiswa\MahasiswaDetailResource;
+use App\Http\Resources\Mahasiswa\MahasiswaResource;
 use App\Models\Jurusan;
 use App\Models\Mahasiswa;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
@@ -20,6 +22,11 @@ class MahasiswaController extends Controller
         return view('admin.mahasiswa.index', [
             'title' => 'Mahasiswa'
         ], compact('dataMahasiswa'));
+    }
+
+    public function getDataMahasiswa()  {
+        $mahasiswa = Mahasiswa::all();
+        return MahasiswaResource::collection($mahasiswa);
     }
 
     /**
@@ -55,9 +62,10 @@ class MahasiswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($nim)
     {
-        //
+        $mahasiswa = Mahasiswa::with('jurusan:id_jurusan,nama_jurusan')->findOrFail($nim);
+        return new MahasiswaDetailResource($mahasiswa);
     }
 
     /**
@@ -66,13 +74,11 @@ class MahasiswaController extends Controller
     public function edit(Mahasiswa $mahasiswa, Jurusan $jurusan)
     {
 
-        // $mahasiswa = Mahasiswa::all();
-        $jurusan= Jurusan::with('jurusan');
-        // $mahasiswa = Mahasiswa::all();
+        $jurusan= Jurusan::all();
 
         return view('admin.mahasiswa.edit', [
             'title' => 'Edit Data Mahasiswa'
-        ],compact('mahasiswa', 'jurusan'));
+        ], compact('mahasiswa', 'jurusan'));
     }
 
     /**

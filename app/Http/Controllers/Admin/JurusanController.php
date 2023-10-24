@@ -7,6 +7,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\JurusanRequest;
+use App\Http\Resources\JurusanDetailResource;
+use App\Http\Resources\JurusanResource;
 
 class JurusanController extends Controller
 {
@@ -19,6 +21,12 @@ class JurusanController extends Controller
         return view('admin.jurusan.index', [
             'title' => 'Jurusan'
         ], compact('dataJurusan'));
+    }
+
+    public function getDataJurusan()  {
+        $jurusan = Jurusan::all();
+        // return response()->json($jurusan);
+        return JurusanResource::collection($jurusan);
     }
 
     /**
@@ -47,9 +55,10 @@ class JurusanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id_jurusan)
     {
-        //
+        $jurusan = Jurusan::with('mahasiswa:nim,nama,id_jurusan')->findOrFail($id_jurusan);
+        return new JurusanDetailResource($jurusan);
     }
 
     /**

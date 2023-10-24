@@ -17,6 +17,7 @@ class Mahasiswa extends Model
 
     protected $table = 'mahasiswa';
 
+
     protected $fillable = ['nim', 'nama', 'alamat', 'jekel', 'id_jurusan'];
 
     public function jurusan() {
