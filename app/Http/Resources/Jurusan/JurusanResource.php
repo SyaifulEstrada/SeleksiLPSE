@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resource\Jurusan;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;

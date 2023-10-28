@@ -24,11 +24,6 @@ class MahasiswaController extends Controller
         ], compact('dataMahasiswa'));
     }
 
-    public function getDataMahasiswa()  {
-        $mahasiswa = Mahasiswa::all();
-        return MahasiswaResource::collection($mahasiswa);
-    }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -62,10 +57,9 @@ class MahasiswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($nim)
+    public function show()
     {
-        $mahasiswa = Mahasiswa::with('jurusan:id_jurusan,nama_jurusan')->findOrFail($nim);
-        return new MahasiswaDetailResource($mahasiswa);
+
     }
 
     /**

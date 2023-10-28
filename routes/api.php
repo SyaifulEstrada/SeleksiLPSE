@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\JurusanController;
-use App\Http\Controllers\Admin\MahasiswaController;
-use App\Http\Controllers\AuthenticationController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\JurusanApiController;
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\Api\MahasiswaApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->group(function () {
+
 // Route Jurusan
-    Route::get('/jurusan', [JurusanController::class, 'getDataJurusan']);
-    Route::get('/jurusan/{id_jurusan}', [JurusanController::class, 'show']);
+    Route::get('/jurusan', [JurusanApiController::class, 'getDataJurusan']);
+    Route::get('/jurusan/{id_jurusan}', [JurusanApiController::class, 'Show']);
+
 // Route Mahasiswa
-    Route::get('/mahasiswa', [MahasiswaController::class, 'getDataMahasiswa']);
-    Route::get('/mahasiswa/{nim}', [MahasiswaController::class, 'show']);
+    Route::get('/mahasiswa', [MahasiswaApiController::class, 'getDataMahasiswa']);
+    Route::get('/mahasiswa/{nim}', [MahasiswaApiController::class, 'show']);
     Route::get('/logout', [AuthenticationController::class, 'logout']);
     Route::get('/me', [AuthenticationController::class, 'show']);
 });
