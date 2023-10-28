@@ -9,13 +9,13 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.mahasiswa.index') }}">
-                    <span data-feather="file"></span>
+                    <span data-feather="user"></span>
                     Mahasiswa
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.jurusan.index') }}">
-                    <span data-feather="shopping-cart"></span>
+                    <span data-feather="feather"></span>
                     Jurusan
                 </a>
             </li>

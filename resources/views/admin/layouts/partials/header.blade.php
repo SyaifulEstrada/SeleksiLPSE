@@ -4,12 +4,12 @@
         data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
+    <ul class="navbar-nav">
+        <li class="nav-item">
             <form action="/logout" method="POST">
                 @csrf
                 <button type="submit" class="nav-link bg-dark border-0 px-3 text-white">Logout</button>
             </form>
-        </div>
-    </div>
+        </li>
+    </ul>
 </header>
