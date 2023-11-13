@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Resource\Jurusan;
+namespace App\Http\Resources\Resources;
 
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class JurusanResource extends JsonResource
+class JurusanResources extends JsonResource
 {
     /**
      * Transform the resource into an array.

@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('konten')
+
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="1000">

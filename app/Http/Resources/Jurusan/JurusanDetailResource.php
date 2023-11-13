@@ -18,7 +18,7 @@ class JurusanDetailResource extends JsonResource
             'id_jurusan' => $this->id_jurusan,
             'kode_jurusan' => $this->kode_jurusan,
             'nama_jurusan' => $this->nama_jurusan,
-            'nama_siswa' => $this->mahasiswa,
+            'mahasiswa' => $this->whenLoaded('mahasiswa'),
             'created_at' => date_format($this->created_at, "d-m-Y H:i:s"),
             'updated_at' => date_format($this->updated_at, "d-m-Y H:i:s"),
         ];
