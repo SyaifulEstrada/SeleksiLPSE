@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Jurusan\JurusanDetailResource;
 use App\Http\Requests\JurusanRequest;
-use App\Http\Resources\Resources\JurusanResources;
+use App\Http\Resources\Jurusan\JurusanResource;
 
 class JurusanApiController extends Controller
 {
     public function getDataJurusan()
     {
         $jurusan = Jurusan::all();
-        return JurusanResources::collection($jurusan);
+        return JurusanResource::collection($jurusan);
     }
 
     public function Show($id_jurusan)
